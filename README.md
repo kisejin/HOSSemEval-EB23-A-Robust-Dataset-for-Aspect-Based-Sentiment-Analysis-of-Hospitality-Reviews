@@ -26,7 +26,46 @@ The script will prompt you to confirm various actions during the setup process. 
 This paper introduces three primary models. These models are: 
 
 ### 1. TAS-Transformer Models ([Wang et al.,2020](https://knowledge-representation.org/j.z.pan/pub/WYDL+2020.pdf))
+**1. Training**:
+To train the model, execute the following commands in your terminal:
 
+```bash
+$ python TAS_BERT_joint.py \
+--data_dir data/path_name \
+--output_dir result/path_name \
+--model_name 'bert-large-uncased' \
+--vocab_file Vocab/vocab.txt \
+--tokenize_method word_split \
+--use_crf \
+--eval_test \
+--do_lower_case \
+--max_seq_length 128 \
+--train_batch_size 32 \
+--eval_batch_size 16 \
+--learning_rate 2e-5 \
+--num_train_epochs 10 \
+--pretrained True
+```
+
+**2. Inference**: 
+To accurately gauge the model's performance and select the best training epoch, follow these steps:
+
+```bash
+$ python evaluation_for_TSD_ASD_TASD.py \
+--output_dir results/path_name \
+--num_epochs 10\
+--tag_schema BIO
+```
+
+**3. Evaluation**: Show classification report and confusion matrix:
+
+```bash
+$ python evaluation_for_AD_SD.py \
+--output_dir results/path_name \
+--num_epochs 10\
+--tag_schema BIO\
+--best_epoch_file_ad_sd 'test_ep_{best_epoch}'
+```
 
 ### 2. GAS ([Zhang et al.,2021](https://aclanthology.org/2021.acl-short.64.pdf))
 
@@ -48,7 +87,7 @@ $ python main.py --task tasd \
 ```
 
 **2. Inference**:
-We are trained on our proprietary dataset, is now available on Hugging Face. Researchers and developers can access this model for further experimentation or fine-tuning using the following identifier: kisejin/T5-GAS-v1
+We are trained on our proprietary dataset, is now available on Hugging Face. You can access this model for further experimentation or fine-tuning using the following identifier: [kisejin/T5-GAS-v1](https://huggingface.co/kisejin/T5-GAS-v1)
 
 ### 3. ASQP  ([Zhang et al., 2021](https://arxiv.org/pdf/2110.00796.pdf))
 
@@ -70,7 +109,7 @@ $ python main.py --task tasd \
 ```
 
 **2. Inference**:
-Similar to the approach outlined in GAS model, we have released our pretrained model for  public use. This model can be accessed and downloaded from Hugging Face with the following identifier: kisejin/T5-ASQP-V3
+Similar to the approach outlined in GAS model, we have released our pretrained model for  public use. This model can be accessed and downloaded from Hugging Face with the following identifier: [kisejin/T5-ASQP-V3](https://huggingface.co/kisejin/T5-ASQP-V3)
 
 
 ## Citation
