@@ -32,3 +32,9 @@ This paper introduces three primary models. These models are:
 
 
 ### 3. ASQP  ([Zhang et al., 2021](https://arxiv.org/pdf/2110.00796.pdf))
+
+
+## Citation
+If the code is used in your research, please star our repo and cite our paper as follows:
+```
+```
