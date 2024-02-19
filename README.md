@@ -31,4 +31,4 @@ This paper introduces three primary models. These models are:
 ### 2. GAS ([Zhang et al.,2021](https://aclanthology.org/2021.acl-short.64.pdf))
 
 
-### 3. ASQP  ([Zhang et al., 2022](https://arxiv.org/pdf/2110.00796.pdf))
+### 3. ASQP  ([Zhang et al., 2021](https://arxiv.org/pdf/2110.00796.pdf))
