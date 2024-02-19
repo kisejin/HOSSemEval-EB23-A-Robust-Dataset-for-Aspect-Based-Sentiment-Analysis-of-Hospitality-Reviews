@@ -26,6 +26,18 @@ The script will prompt you to confirm various actions during the setup process. 
 This paper introduces three primary models. These models are: 
 
 ### 1. TAS-Transformer Models ([Wang et al.,2020](https://knowledge-representation.org/j.z.pan/pub/WYDL+2020.pdf))
+
+**Preparing data for training**:
+Download uncased [BERT-Based model](https://github.com/google-research/bert), unpack, place the folder in the root directory and run convert_tf_checkpoint_to_pytorch.py to create BERT-pytorch-model and run following commands to get preprocessed data:
+
+```bash
+$ cd data
+$ python data_preprocessing_for_TAS.py --dataset name_data
+% cd ../
+```
+
+The preprocessed data is in folders semeval2015/three_joint/BIO and semeval2015/three_joint/TO. BIO and TO are the two tagging schemes mentioned in our paper.
+
 **1. Training**:
 To train the model, execute the following commands in your terminal:
 
@@ -69,6 +81,13 @@ $ python evaluation_for_AD_SD.py \
 
 ### 2. GAS ([Zhang et al.,2021](https://aclanthology.org/2021.acl-short.64.pdf))
 
+**Preparing data for training**:
+Execute the following command:
+
+```bash
+$ python data_preprocessing.py --input {input_path} --output {output_path}
+```
+
 **1. Training**:
 To retrain the model with our data or train the model with your data annotated in our format, follow the syntax below:
 
@@ -90,6 +109,13 @@ $ python main.py --task tasd \
 We are trained on our proprietary dataset, is now available on Hugging Face. You can access this model for further experimentation or fine-tuning using the following identifier: [kisejin/T5-GAS-v1](https://huggingface.co/kisejin/T5-GAS-v1)
 
 ### 3. ASQP  ([Zhang et al., 2021](https://arxiv.org/pdf/2110.00796.pdf))
+
+**Preparing data for training**:
+Execute the following command:
+
+```bash
+$ python data_preprocessing.py --input {input_path} --output {output_path}
+```
 
 **1. Training**:
 To retrain the model with our data or train the model with your data annotated in our format, follow the syntax below:
