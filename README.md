@@ -3,7 +3,7 @@
 This repo contains the annotated data and code for our paper: HOSSemEval-EB23-A-Robust-Dataset-for-Aspect-Based-Sentiment-Analysis-of-Hospitality-Reviews
 
 ## Short Summary
-We aim to tackle the aspect-based sentiment analysis task by given our own annotation data which obtained from Booking.com, covering the period from 2020 to 2023. Given the sentence, we predict all sentiment quads (aspect category, aspect term, sentiment polarity)
+We aim to tackle the aspect-based sentiment analysis task by given our own annotation data which obtained from Booking.com, covering the period from 2020 to 2023. Given the sentence, we predict all sentiment quads (`aspect category`, `aspect term`, `sentiment polarity`)
 
 ## Data 
 The data used in this study is not publicly available due to security concerns. If you are interested in using the data, please contact the authors at htson@hcmus.edu.vn
@@ -30,8 +30,47 @@ This paper introduces three primary models. These models are:
 
 ### 2. GAS ([Zhang et al.,2021](https://aclanthology.org/2021.acl-short.64.pdf))
 
+**1. Training**:
+To retrain the model with our data or train the model with your data annotated in our format, follow the syntax below:
+
+```bash
+$ python main.py --task tasd \
+            --dataset `your_patth_store_data` \
+            --model_name_or_path t5-base \
+            --n_gpu 0 \
+            --do_train \
+            --do_direct_eval \
+            --train_batch_size 16 \
+            --gradient_accumulation_steps 1 \
+            --eval_batch_size 16 \
+            --learning_rate 3e-4 \
+            --num_train_epochs 20
+```
+
+**2. Inference**:
+We are trained on our proprietary dataset, is now available on Hugging Face. Researchers and developers can access this model for further experimentation or fine-tuning using the following identifier: kisejin/T5-GAS-v1
 
 ### 3. ASQP  ([Zhang et al., 2021](https://arxiv.org/pdf/2110.00796.pdf))
+
+**1. Training**:
+To retrain the model with our data or train the model with your data annotated in our format, follow the syntax below:
+
+```bash
+$ python main.py --task tasd \
+            --dataset `your_patth_store_data` \
+            --model_name_or_path t5-base \
+            --n_gpu 0 \
+            --do_train \
+            --do_direct_eval \
+            --train_batch_size 16 \
+            --gradient_accumulation_steps 1 \
+            --eval_batch_size 16 \
+            --learning_rate 3e-4 \
+            --num_train_epochs 20
+```
+
+**2. Inference**:
+Similar to the approach outlined in GAS model, we have released our pretrained model for  public use. This model can be accessed and downloaded from Hugging Face with the following identifier: kisejin/T5-ASQP-V3
 
 
 ## Citation
