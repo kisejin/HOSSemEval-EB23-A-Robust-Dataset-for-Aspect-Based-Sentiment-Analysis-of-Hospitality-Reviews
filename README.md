@@ -9,8 +9,12 @@ We aim to tackle the aspect-based sentiment analysis task by given our own annot
 **Project Setup with Python 3.11.7 (Conda)**
 
 This project simplifies setup, streamlining the creation of a Python 3.11.7 environment using Conda and the installation of necessary packages.  Follow these steps:
+
 **1. Execute the Script**
+
 Run the following command in your terminal: 
 ```bash
 $ source setup.sh
 ```
+
+The script will prompt you to confirm various actions during the setup process. Respond with 'y' (yes) to proceed with each step.
